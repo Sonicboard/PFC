@@ -108,7 +108,7 @@ end
 if(is_this_property)
     Medium_name = one_varargin_value{Locb};
 else
-    Medium_name = 'water';
+    Medium_name = 'water'; % Last version is set as water
 end
 
 medium_data = PFC_GetMedium(Medium_name);

@@ -86,7 +86,7 @@ end
 if(isfield(transducer_info, 'medium'))
     Medium_name = transducer_info.medium;
 else
-    Medium_name = 'water';
+    Medium_name = 'water'; % Last version is set as water
 end
 
 Medium_data = PFC_GetMedium(Medium_name);
