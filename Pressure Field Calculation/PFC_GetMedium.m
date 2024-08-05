@@ -4,7 +4,7 @@ medium_data = [];
 medium_data.name = medium_name;
 
 if(nargin == 1)
-    target_frequency = 1e6;
+    target_frequency = 40000;  % Initial is 1e6
 end
 
 switch(medium_name)

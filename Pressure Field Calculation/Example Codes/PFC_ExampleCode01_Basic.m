@@ -37,6 +37,7 @@ Pressure_dxyz_i = abs(squeeze(Pressure_dxyz));
 
 figure;imagesc(reading_pos_z.*1e3, reading_pos_x.*1e3, Pressure_dxyz_i);
 set(gca,'DataAspectRatio',[1 1 1],'Layer','top');
+colorbar;
 xlabel('z [mm]');
 ylabel('x [mm]');
 
@@ -50,6 +51,7 @@ Pressure_dxyz_i = abs(squeeze(Pressure_dxyz));
 
 figure;imagesc(reading_pos_x.*1e3, reading_pos_y.*1e3, Pressure_dxyz_i);
 set(gca,'DataAspectRatio',[1 1 1],'Layer','top');
+colorbar;
 xlabel('x [mm]');
 ylabel('y [mm]');
 
