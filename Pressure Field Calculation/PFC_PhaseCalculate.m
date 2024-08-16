@@ -18,7 +18,7 @@ function phase = PFC_PhaseCalculate(target, array, Lf)
 
     % Basic Setting
     sos = 340;
-    fc = 40e3;
+    fc = 40000;
     d = 0.01;
     r = d / 2;
 
