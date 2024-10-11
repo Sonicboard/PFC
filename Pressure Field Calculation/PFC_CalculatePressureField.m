@@ -108,10 +108,10 @@ end
 if(is_this_property)
     Medium_name = one_varargin_value{Locb};
 else
-    Medium_name = 'water'; % Last version is set as water
+    Medium_name = 'air'; % Last version is set as water
 end
 
-medium_data = PFC_GetMedium(Medium_name);
+medium_data = PFC_GetMedium('air'); % Last version is medium_name
 
 %% GPU Check
 try

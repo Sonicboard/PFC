@@ -11,6 +11,9 @@ switch(medium_name)
     case 'air'
         medium_data.c = 340;
         medium_data.rho = 1.2;
+        medium_data.a = 0;  % a (Nepers*s^2/m) / 1.9e-11
+        medium_data.k = 2;        % k is dimensionless: loss is exp(-alfa*f^k*z)
+        medium_data.alpha = medium_data.a.*target_frequency.^medium_data.k;
     case 'water'
         medium_data.c = 1497;
         medium_data.rho = 997;

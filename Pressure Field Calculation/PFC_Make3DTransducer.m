@@ -89,7 +89,7 @@ else
     Medium_name = 'water'; % Last version is set as water
 end
 
-Medium_data = PFC_GetMedium(Medium_name);
+Medium_data = PFC_GetMedium('air');
 
 Medium_data.wavelength = Medium_data.c/Frequency_designed; % [m]
 

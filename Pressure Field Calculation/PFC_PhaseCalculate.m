@@ -17,13 +17,13 @@ function phase = PFC_PhaseCalculate(target, array, Lf)
     %    phase - Phase adjustments for each transducer
 
     % Basic Setting
-    sos = 340;
+    sos = 343;
     fc = 40000;
     d = 0.01;
     r = d / 2;
 
     % Calculate wavelength
-    %lambda = sos / fc;
+    lambda = sos / fc;
 
     % Preallocate arrays for time and clock counters
     time = zeros(array(1), array(2));
@@ -33,16 +33,9 @@ function phase = PFC_PhaseCalculate(target, array, Lf)
     for i = 1:array(1)
         for j = 1:array(2)
             % Calculate the distance from each transducer to the target
-            R1 = norm([(i-1) * d + r, (j-1) * d + r] - target)^2;
-            time(i, j) = sqrt(R1 + Lf^2) / sos;
-            clk_counter(i, j) = round(time(i, j) / (1 / 65e6));
+            R1 = norm([(i-1) * d + r, (j-1) * d + r] - target);
+            time(i, j) = sqrt(R1^2 + Lf^2) / sos;
+            phase(i, j) = 2*pi*fc*time(i,j);
         end
     end
 
-    % Adjust clk_counter by subtracting the minimum value
-    clk_counter = clk_counter - min(clk_counter(:));
-
-    % Calculate phase adjustments
-    phase = (time - min(time(:))) * 1e3 * 80 * pi;
-    phase = -phase + max(phase(:));
-end
